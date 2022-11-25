@@ -9,7 +9,7 @@ class Wave:
 
     @classmethod
     def read(cls, filename):
-        rate, waveform = librosa.load(filename)
+        waveform, rate = librosa.load(filename)
 
         return Wave(rate, waveform)
 
