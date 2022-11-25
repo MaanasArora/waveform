@@ -2,7 +2,7 @@ import librosa
 import soundfile
 
 
-class Song:
+class Wave:
     def __init__(self, rate, waveform):
         self.rate = rate
         self.waveform = waveform
@@ -11,7 +11,7 @@ class Song:
     def read(cls, filename):
         rate, waveform = librosa.load(filename)
 
-        return Song(rate, waveform)
+        return Wave(rate, waveform)
 
     def write(self, filename):
         soundfile.write(filename, self.waveform, self.rate)
