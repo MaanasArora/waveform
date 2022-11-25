@@ -12,11 +12,11 @@ class Spectrum:
     def create_from_wave(cls, spectrum_rate, wave):
         waveform = wave.waveform
 
-        window_size = spectrum_rate // wave.rate
+        window_size = wave.rate // spectrum_rate
         num_windows = len(waveform) // window_size
 
         frames = []
-        for i in range(len(waveform) // num_windows):
+        for i in range(num_windows):
             win_start = window_size * i
             win_end = window_size * (i + 1)
 
