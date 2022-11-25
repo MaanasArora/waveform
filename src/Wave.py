@@ -7,7 +7,7 @@ class Wave:
         self.rate = rate
         self.waveform = waveform
 
-    @staticmethod
+    @classmethod
     def read(cls, filename):
         rate, waveform = librosa.load(filename)
 

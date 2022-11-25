@@ -8,7 +8,7 @@ class Spectrum:
         self.frames = frames
         self.freqs = freqs
 
-    @staticmethod
+    @classmethod
     def create_from_wave(cls, spectrum_rate, wave):
         waveform = wave.waveform
 
