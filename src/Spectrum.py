@@ -15,15 +15,10 @@ class Spectrum:
         window_size = wave.rate // spectrum_rate
         num_windows = len(waveform) // window_size
 
-        frames = []
-        for i in range(num_windows):
-            win_start = window_size * i
-            win_end = window_size * (i + 1)
-
-            window = waveform[win_start:win_end]
-            frames.append(fft(window))
-        frames = np.array(frames)
-
+        frames = np.array(
+            fft(waveform[window_size * i:window_size * (i + 1)])
+            for i in range(num_windows)
+        )
         freqs = fftfreq(window_size, 1 / wave.rate)
 
         return Spectrum(spectrum_rate, frames, freqs)
